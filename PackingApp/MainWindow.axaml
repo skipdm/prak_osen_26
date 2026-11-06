@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PackingApp.MainWindow"
+        Title="Упаковка квадратов - генетический алгоритм"
+        Width="1160" Height="620">
+    <Grid ColumnDefinitions="260,*,260">
+
+        <StackPanel Grid.Column="0" Margin="12" Spacing="6">
+            <TextBlock FontWeight="Bold" Text="Параметры задачи" />
+            <TextBlock Text="Квадратов 1×1" />
+            <NumericUpDown x:Name="Count1Box" Value="10" Minimum="0" Maximum="200" Increment="1" FormatString="0" />
+            <TextBlock Text="Квадратов 2×2" />
+            <NumericUpDown x:Name="Count2Box" Value="6" Minimum="0" Maximum="200" Increment="1" FormatString="0" />
+            <TextBlock Text="Квадратов 3×3" />
+            <NumericUpDown x:Name="Count3Box" Value="4" Minimum="0" Maximum="200" Increment="1" FormatString="0" />
+
+            <TextBlock FontWeight="Bold" Text="Параметры алгоритма" Margin="0,10,0,0" />
+            <TextBlock Text="Размер популяции" />
+            <NumericUpDown x:Name="PopulationBox" Value="500" Minimum="10" Maximum="10000" Increment="100" FormatString="0" />
+            <TextBlock Text="Вероятность мутации квадрата" />
+            <NumericUpDown x:Name="MutationBox" Value="0.1" Minimum="0" Maximum="1" Increment="0.05" FormatString="0.00" />
+
+            <Button x:Name="StartButton" Content="Старт" Click="StartButton_Click"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,10,0,0" />
+            <Button x:Name="StopButton" Content="Стоп" Click="StopButton_Click" IsEnabled="False"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+
+            <TextBlock FontWeight="Bold" Text="Состояние поиска" Margin="0,10,0,0" />
+            <TextBlock x:Name="StatusText" Text="Задайте параметры и нажмите Старт" TextWrapping="Wrap" />
+            <TextBlock x:Name="GenerationText" />
+            <TextBlock x:Name="AreaText" />
+            <TextBlock x:Name="TotalText" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Border Grid.Column="1" Margin="0,12,0,12" Background="White" BorderBrush="Gray" BorderThickness="1">
+            <Canvas x:Name="FieldCanvas" />
+        </Border>
+
+        <StackPanel Grid.Column="2" Margin="12" Spacing="6">
+            <TextBlock FontWeight="Bold" Text="Вычислительные сервисы" />
+            <TextBlock Text="IP-адрес" />
+            <TextBox x:Name="IpBox" Text="127.0.0.1" />
+            <TextBlock Text="Порт" />
+            <NumericUpDown x:Name="PortBox" Value="5001" Minimum="1" Maximum="65535" Increment="1" FormatString="0" />
+            <Button x:Name="AddServiceButton" Content="Добавить" Click="AddServiceButton_Click"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+
+            <TextBlock Text="Список сервисов" Margin="0,10,0,0" />
+            <ListBox x:Name="ServicesList" Height="150" BorderBrush="Gray" BorderThickness="1" />
+            <Button x:Name="RemoveServiceButton" Content="Удалить выбранный" Click="RemoveServiceButton_Click"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+
+            <TextBlock x:Name="ServicesText" TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+</Window>

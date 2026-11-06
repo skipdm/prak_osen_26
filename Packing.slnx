@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="PackingApp/PackingApp.csproj" />
+  <Project Path="PackingLib/PackingLib.csproj" />
+  <Project Path="PackingService/PackingService.csproj" />
+  <Project Path="PackingServiceTests/PackingServiceTests.csproj" />
+  <Project Path="PackingTests/PackingTests.csproj" />
+</Solution>
